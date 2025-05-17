@@ -58,7 +58,7 @@ public sealed interface Option<T> {
      * @param other value to be returned if {@code this} is a {@link None<T>}
      * @return the wrapped value or {@code other} if {@code this} is a {@link None<T>}
      */
-    default T orDefault(T other) {
+    default T unwrapOr(T other) {
         return this instanceof Some(T v) ? v : other;
     }
 
@@ -66,7 +66,7 @@ public sealed interface Option<T> {
      * @param otherFn value supplier that should return a value to return if {@code this} is a {@link None<T>}
      * @return the wrapped value or the returned value of {@code otherFn} if {@code this} is a {@link None<T>}
      */
-    default T orDefault(Supplier<T> otherFn) {
+    default T unwrapOr(Supplier<T> otherFn) {
         return this instanceof Some(T v) ? v : Objects.requireNonNull(otherFn).get();
     }
 
@@ -106,7 +106,7 @@ public sealed interface Option<T> {
      * @throws NullPointerException if {@code this} is a {@link None<T>}
      */
     default T unwrap() {
-        if (this instanceof Some<T> s) return s.value();
+        if (this instanceof Some<T>(T value)) return value;
         throw new NullPointerException("Tried to unwrap a None object");
     }
 
