@@ -24,7 +24,7 @@ public class OptionTest {
     public void testSomeValue() {
         final var intValue = some(1);
 
-        expectSome(intValue, 2);
+        expectSome(intValue, 10);
     }
 
     @Test
