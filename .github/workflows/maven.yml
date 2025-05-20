@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Run Tests A
+name: Run Tests
 on:
   push:
     branches: [ "main" ]
