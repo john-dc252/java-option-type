@@ -14,7 +14,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Run Tests:
+  test:
 
     runs-on: ubuntu-latest
 
