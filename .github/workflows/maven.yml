@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java Test
+name: CI
 on:
   push:
     branches: [ "main" ]
@@ -14,7 +14,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
+    name: Run Tests
 
     runs-on: ubuntu-latest
 
