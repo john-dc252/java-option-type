@@ -163,6 +163,11 @@ public class OptionTest {
         expectNone(mappedValue);
     }
 
+    @Test(description = "flat map on `Some` should throw NPE if `mapFn` returns `null`")
+    public void testSomeFlatMapNull() {
+        expectThrows(NullPointerException.class, () -> some(1).flatMap(n -> null));
+    }
+
     private static <T> void expectSome(Option<T> optionValue, T unwrappedValue) {
         assertThat(optionValue.isSome(), is(true));
         assertThat(optionValue.isNone(), is(false));
